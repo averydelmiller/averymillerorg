@@ -10,10 +10,38 @@
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+  }
+    /* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 25%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
 }
   </style>
 </head>
 <body>
   <src img="https://i.ibb.co/hRfCJ8M/thumbnailmayhe.png" alt="bohemian raphsody parody" class"center">
+  <br>
+  <div class="row">
+  <div class="column">
+    <img src="https://i.ibb.co/kGjMRR7/yt-logo-mono-light.png" alt="youtube" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://i.ibb.co/VwygXnh/vimeo-logo-dark.png" alt="vimeo" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://i.ibb.co/XtFGtmQ/Twitter-Logo-Blue.png" alt="twitter" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://i.ibb.co/2P8vnNz/newprofile.png" alt="mail" style="width:100%">
+  </div>
+</div>
 </body>
 </html>
