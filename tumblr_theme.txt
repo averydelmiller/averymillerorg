@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{Title}</title>
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        {block:Description}
+            <meta name="description" content="{MetaDescription}" />
+        {/block:Description}
+    <style>
+    @media only screen and (min-width: 1000px) {
+            body {
+                text-align: center;
+                font-family: 'Lato', sans-serif;
+                overflow-x: hidden; //horizontal
+                overflow-y: hidden; //vertical
+            }
+            a {
+                color: black;
+                text-decoration: none;
+                /* no underline */
+            }
+            img {
+                max-width: 10%;
+                min-width: 5%;
+                height: auto;
+            }
+        }
+        
+        @media only screen and (max-width: 1000px) {
+            body {
+                text-align: center;
+                font-family: 'Lato', sans-serif;
+                overflow-x: hidden; //horizontal
+                overflow-y: hidden; //vertical
+            }
+            a {
+                color: black;
+                text-decoration: none;
+                /* no underline */
+            }
+            img {
+                max-width: 30%;
+                min-width: 10%;
+                height: auto;
+            }
+        }
+    }
+    </style>
+</head>
+
+<body style="margin: 0px;" class="fadeIn">
+    <div style="text-align: center; min-width: 100vw; min-height: 20vh; background-color: rgb(247, 128, 237); padding: 13px;
+    display: inline-block;">
+        <br>
+        <br>
+        <br>
+        <img src="{PortraitURL-96}" alt="profile" class="wiggle" border="0">
+        <br>
+        <br>
+    </div>
+    <div style="text-align: center;">
+      <ol id="posts">
+            {block:Posts}{block:Text}
+                    <li class="post text">
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}{Body}
+                    </li>
+                {/block:Text}{block:Photo}
+                    <li class="post photo">
+                        <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                {/block:Photo}{block:Panorama}
+                    <li class="post panorama">
+                        {LinkOpenTag}
+                            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+                        {LinkCloseTag}{block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                {/block:Panorama}{block:Photoset}
+                    <li class="post photoset">
+                        {Photoset-500}{block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                {/block:Photoset}{block:Quote}
+                    <li class="post quote">
+                        "{Quote}"
+
+                        {block:Source}
+                            <div class="source">{Source}</div>
+                        {/block:Source}
+                    </li>
+                {/block:Quote}{block:Link}
+                    <li class="post link">
+                        <a href="{URL}" class="link" {Target}>{Name}</a>
+
+                        {block:Description}
+                            <div class="description">{Description}</div>
+                        {/block:Description}
+                    </li>
+                {/block:Link}{block:Chat}
+                    <li class="post chat">
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+
+                        <ul class="chat">
+                            {block:Lines}
+                                <li class="{Alt} user_{UserNumber}">
+                                    {block:Label}
+                                        <span class="label">{Label}</span>
+                                    {/block:Label}{Line}
+                                </li>
+                            {/block:Lines}
+                        </ul>
+                    </li>
+                {/block:Chat}{block:Video}
+                    <li class="post video">
+                        {Video-500}{block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                {/block:Video}{block:Audio}
+                    <li class="post audio">
+                        {AudioEmbed}{block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                {/block:Audio}{/block:Posts}
+        </ol>
+    </div>
+<p id="footer" style="text-align: center;">
+            {block:PreviousPage}
+                <a href="{PreviousPage}">&#171; Previous</a>
+            {/block:PreviousPage}{block:NextPage}
+                <a href="{NextPage}">Next &#187;</a>
+            {/block:NextPage}
+
+            <a href="/archive">Archive</a>
+        </p>
+</body>
+
+</html>
